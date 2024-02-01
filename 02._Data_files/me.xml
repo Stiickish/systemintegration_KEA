@@ -1,0 +1,10 @@
+<me>
+    <name>Yelong</name>
+    <occupation>student</occupation>
+    <age>32</age>
+    <hobbies>
+        <hobby>bouldering</hobby>
+        <hobby>cooking</hobby>
+    </hobbies>
+    <country>Denmark</country>
+</me>
