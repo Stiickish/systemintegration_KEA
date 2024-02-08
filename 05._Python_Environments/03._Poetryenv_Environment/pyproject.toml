@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "03-poetryenv-environment"
+version = "0.1.0"
+description = ""
+authors = ["Yelong Hartl-He <Yelong.he@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "03"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+emoji = "^2.10.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
