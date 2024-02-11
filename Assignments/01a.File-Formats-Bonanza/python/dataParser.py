@@ -35,11 +35,11 @@ def read_text(filename):
         return text_content
     
 if __name__ == '__main__':
-    csv_data = parse_csv('../me.csv')
-    xml_data = parse_xml('../me.xml')
-    yaml_data = parse_yaml('../me.yaml')
-    json_data = parse_json('../me.json')
-    text_content = read_text('../me.txt')
+    csv_data = parse_csv('../data/me.csv')
+    xml_data = parse_xml('../data/me.xml')
+    yaml_data = parse_yaml('../data/me.yaml')
+    json_data = parse_json('../data/me.json')
+    text_content = read_text('../data/me.txt')
 
     print("CSV Data: ", csv_data)
     print("\nXML Data: ", xml_data)
