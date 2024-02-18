@@ -1,15 +1,13 @@
-const fs = require("fs");
-const csv = require("csv-parser");
-const xml2js = require("xml2js");
-const yaml = require("js-yaml");
-const path = require("path");
+import fs from "fs";
+import xml2js from "xml2js";
+import yaml from "js-yaml";
+import csv from "csv-parser";
 
 // CSV
 function parseCSV(filename) {
   return new Promise((resolve, reject) => {
-    const filePath = path.join(__dirname, filename);
     const results = [];
-    fs.createReadStream(filePath)
+    fs.createReadStream(filename)
       .pipe(csv())
       .on("data", (data) => results.push(data))
       .on("end", () => {
@@ -26,9 +24,8 @@ function parseCSV(filename) {
 // XML
 function parseXML(filename) {
   return new Promise((resolve, reject) => {
-    const absolutePath = path.resolve(__dirname, filename);
     const parser = new xml2js.Parser();
-    fs.readFile(absolutePath, (err, data) => {
+    fs.readFile(filename, (err, data) => {
       if (err) {
         console.error("Error reading XML file:", err);
         reject(err);
@@ -51,8 +48,7 @@ function parseXML(filename) {
 function parseYAML(filename) {
   return new Promise((resolve, reject) => {
     try {
-      const absolutePath = path.resolve(__dirname, filename);
-      const data = fs.readFileSync(absolutePath, "utf8");
+      const data = fs.readFileSync(filename, "utf8");
       const parsedData = yaml.load(data);
       console.log("YAML data:", parsedData);
       resolve(parsedData);
@@ -67,8 +63,7 @@ function parseYAML(filename) {
 function parseJSON(filename) {
   return new Promise((resolve, reject) => {
     try {
-      const absolutePath = path.resolve(__dirname, filename);
-      const data = fs.readFileSync(absolutePath, "utf8");
+      const data = fs.readFileSync(filename, "utf8");
       const parsedData = JSON.parse(data);
       console.log("JSON data:", parsedData);
       resolve(parsedData);
@@ -83,8 +78,7 @@ function parseJSON(filename) {
 function readText(filename) {
   return new Promise((resolve, reject) => {
     try {
-      const absolutePath = path.resolve(__dirname, filename);
-      const textContent = fs.readFileSync(absolutePath, "utf8");
+      const textContent = fs.readFileSync(filename, "utf8");
       console.log("Text content:", textContent);
       resolve(textContent);
     } catch (error) {
@@ -94,16 +88,10 @@ function readText(filename) {
   });
 }
 
-parseCSV("../data/me.csv");
+/* parseCSV("../data/me.csv");
 parseXML("../data/me.xml");
 parseYAML("../data/me.yaml");
 parseJSON("../data/me.json");
-readText("../data/me.txt");
+readText("../data/me.txt"); */
 
-module.exports = {
-  parseCSV,
-  parseJSON,
-  parseXML,
-  parseYAML,
-  readText,
-};
+export { parseCSV, parseJSON, parseXML, parseYAML, readText };

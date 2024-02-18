@@ -5,7 +5,7 @@ import {
   parseYAML,
   parseJSON,
   readText,
-} from "../../01a.File-Formats-Bonanza/node/dataParser.js";
+} from "./dataParser.js";
 
 const app = express();
 
@@ -13,33 +13,32 @@ app.get("/", (req, res) => {
   res.send({ message: "Hello World!" });
 });
 
-// Endpoint for at parse en CSV-fil
-app.get("/csv", (req, res) => {
-  parseCSV("../../01a.File-Formats-Bonanza/data/me.csv")
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((error) => {
-      console.error("Error handling CSV request:", error);
-      res.status(500).send("Internal Server Error");
-    });
-});
-
-// Endpoint for at parse en XML-fil
-app.get("/xml", async (req, res) => {
+// Endpoint for CSV
+app.get("/csv", async (req, res) => {
   try {
-    const data = await parseXML("../../01a.File-Formats-Bonanza/data/me.xml");
+    const data = await parseCSV("../data/me.csv");
     res.json(data);
   } catch (error) {
-    console.error("Error handling XML request:", error);
+    console.log("Error handling CSV request: ", error);
     res.status(500).send("Internal Server Error");
   }
 });
 
-// Endpoint for at parse en YAML-fil
+// Endpoint for XML
+app.get("/xml", async (req, res) => {
+  try {
+    const data = await parseXML("../data/me.xml");
+    res.json(data);
+  } catch (error) {
+    console.log("Error handling XML request: ", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Endpoint for YAML
 app.get("/yaml", async (req, res) => {
   try {
-    const data = await parseYAML("../../01a.File-Formats-Bonanza/data/me.yaml");
+    const data = await parseYAML("../data/me.yaml");
     res.json(data);
   } catch (error) {
     console.error("Error handling YAML request:", error);
@@ -47,10 +46,10 @@ app.get("/yaml", async (req, res) => {
   }
 });
 
-// Endpoint for at parse en JSON-fil
+// Endpoint for JSON
 app.get("/json", async (req, res) => {
   try {
-    const data = await parseJSON("../../01a.File-Formats-Bonanza/data/me.json");
+    const data = await parseJSON("../data/me.json");
     res.json(data);
   } catch (error) {
     console.error("Error handling JSON request:", error);
@@ -61,7 +60,7 @@ app.get("/json", async (req, res) => {
 // Endpoint for at læse en TXT-fil
 app.get("/txt", async (req, res) => {
   try {
-    const data = await readText("../../01a.File-Formats-Bonanza/data/me.txt");
+    const data = await readText("../data/me.txt");
     res.send(data);
   } catch (error) {
     console.error("Error handling TXT request:", error);
