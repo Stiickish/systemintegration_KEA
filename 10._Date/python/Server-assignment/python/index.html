@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Example</title>
+  </head>
+  <body>
+    <div id="utcContainer"></div>
+
+    <script>
+      // Fetch data from ngrok endpoint
+      fetch("https://7ac6-195-249-146-101.ngrok-free.app/utc")
+        .then((response) => response.text())
+        .then((data) => {
+          // Display the fetched data in the HTML page
+          document.getElementById("utcContainer").innerText = data;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    </script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Example</title>
+  </head>
+  <body>
+    <div id="utcContainer"></div>
+
+    <script>
+      // Fetch data from ngrok endpoint
+      fetch("https://cab1-195-249-146-101.ngrok-free.app/date")
+        .then((response) => response.json()) // Parse JSON response
+        .then((data) => {
+          // Extract date from JSON data
+          const utcDate = data.data;
+          // Display the fetched date in the HTML page
+          document.getElementById(
+            "utcContainer"
+          ).innerText = `UTC Date: ${utcDate}`;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    </script>
+  </body>
+</html>
