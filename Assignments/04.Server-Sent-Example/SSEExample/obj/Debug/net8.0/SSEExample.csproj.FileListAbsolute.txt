@@ -1,0 +1,15 @@
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.AssemblyInfoInputs.cache
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.AssemblyInfo.cs
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.csproj.CoreCompileInputs.cache
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.sourcelink.json
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\bin\Debug\net8.0\SSEExample.exe
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\bin\Debug\net8.0\SSEExample.deps.json
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\bin\Debug\net8.0\SSEExample.runtimeconfig.json
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\bin\Debug\net8.0\SSEExample.dll
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\bin\Debug\net8.0\SSEExample.pdb
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.dll
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\refint\SSEExample.dll
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.pdb
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\SSEExample.genruntimeconfig.cache
+C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\obj\Debug\net8.0\ref\SSEExample.dll

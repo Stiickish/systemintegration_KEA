@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assignments", "Assignments", "{59EC6BE9-00D1-4E42-86C7-3BD494B27B70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.Server-Sent-Example", "04.Server-Sent-Example", "{37937CC1-3010-451F-94C8-60323C63BE2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSEExample", "Assignments\04.Server-Sent-Example\SSEExample\SSEExample.csproj", "{EFEEF8A8-6029-4110-9A80-125786FE1860}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFEEF8A8-6029-4110-9A80-125786FE1860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFEEF8A8-6029-4110-9A80-125786FE1860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFEEF8A8-6029-4110-9A80-125786FE1860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFEEF8A8-6029-4110-9A80-125786FE1860}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37937CC1-3010-451F-94C8-60323C63BE2F} = {59EC6BE9-00D1-4E42-86C7-3BD494B27B70}
+		{EFEEF8A8-6029-4110-9A80-125786FE1860} = {37937CC1-3010-451F-94C8-60323C63BE2F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F47269F-F7C3-4513-945E-0FE3EC54FC7B}
+	EndGlobalSection
+EndGlobal
