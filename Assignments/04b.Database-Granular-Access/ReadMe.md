@@ -1,53 +1,64 @@
-Database Dokumentation
+# Zootopia Database Documentation
 
-Denne ReadMe-fil indeholder dokumentation for databasen og dens struktur, samt information om brugere og rettigheder.
+## About
+This README file contains documentation for the database and it's structure, as well as information about users and permissions. The goal is to set up a database with granular access.
 
-Database Navn
+## Database Setup
+### Tables
 
-     1. Systemintegration_kea
-     2. Connection string: systemintegration-kea.database.windows.net
+### Animal Information Table: `animal_information`
+| No. | Name                | Datatype                    | Description                                      |
+|-----|---------------------|-----------------------------|--------------------------------------------------|
+| 1   | animal_id           | INT, PRIMARY KEY            | Unique identifier for the animal                |
+| 2   | species             | VARCHAR(50)                 | Species of the animal                           |
+| 3   | name                | VARCHAR(50)                 | Name of the animal                              |
+| 4   | age                 | INT                         | Age of the animal                               |
+| 5   | gender              | VARCHAR(10)                 | Gender of the animal                            |
+| 6   | habitat             | VARCHAR(50)                 | Habitat of the animal                           |
 
-Tabeller
+### Feeding Schedule Table: `feeding_schedule`
+| No. | Name                | Datatype                    | Description                                      |
+|-----|---------------------|-----------------------------|--------------------------------------------------|
+| 1   | schedule_id         | INT, PRIMARY KEY            | Unique identifier for the feeding schedule      |
+| 2   | animal_id           | INT                         | Foreign key referencing the animal ID           |
+| 3   | date                | DATE                        | Date of the feeding schedule                    |
+| 4   | time                | TIME                        | Time of the feeding schedule                    |
+| 5   | food_type           | VARCHAR(50)                 | Type of food for the feeding schedule           |
+| 6   | quantity            | INT                         | Quantity of food for the feeding schedule       |
 
-    1. read_table
-        • Kolonner: ID (INT), Name (NVARCHAR (50)), AGE (INT)
-        • Beskrivelse: Denne tabel indeholder data, som brugeren har læseadgang til.
+### Staff Details Table: `staff_details`
+| No. | Name                | Datatype                    | Description                                      |
+|-----|---------------------|-----------------------------|--------------------------------------------------|
+| 1   | staff_id            | INT, PRIMARY KEY            | Unique identifier for the staff member           |
+| 2   | full_name           | VARCHAR(100)                | Full name of the staff member                    |
+| 3   | position            | VARCHAR(100)                | Position of the staff member                     |
+| 4   | salary              | INT                         | Salary of the staff member                       |
+| 5   | hire_date           | DATE                        | Date of hire for the staff member                |
 
-    2. read_write_table
-          • Kolonner: ID (INT), Name (NVARCHAR (50)), AGE (INT)
-          • Beskrivelse: Denne tabel indeholder data, som brugeren har læse- og skriveadgang til.
+## Table Permissions
 
-    3. secret_table
-          • Kolonner: ID (INT), Name (NVARCHAR (50))
-          • Beskrivelse: Denne tabel indeholder fortrolige data, som kun udvalgte brugere har adgang til.
+| Role          | animal_information | feeding_schedule | staff_details |
+|---------------|---------------------|------------------|---------------|
+| zoo_assistant | Read/Write          | Read             | No Access     |
 
-Brugere og Rettigheder
+## Database Connection
+Server: `systemintegration-kea.database.windows.net`
 
-     • Bruger: frank
-        • Beskrivelse: En bruger, der er oprettet til at få adgang til databasen. Brugeren har én eller flere tilladelser til databasen.
-     • Login: frank
-     • Adgangskode: @bcd1234
-     • Rettigheder:
-        • Brugeren har forskellige tilladelser baseret på tabellerne:
-        • Read_table: Læsetilladelse.
-        • Read_write_table: Læse- og skrivetilladelse.
-        • Secret_table: Tabellen er synlig, men brugeren har hverken læse- eller skrivetilladelse.
+Database: `zootopia`
 
-Tilslutning og Kommandoer
-Databasen ”systemintegration_kea” kan tilgås på følgende måde:
+Login: `zoo_assistant`
 
-    1. Åben PowerShell eller hvilken som helst terminal
+Pass: `LionTigerB3@r`
 
-    2. Hvis du har sqlcmd installeret, kan du køre følgende kommando for at oprette forbindelse.
+## SQL Commands
+To access the database, follow these steps:
 
-        • sqlcmd -S <servernavn> -U <brugernavn> -P <adgangskode> -d <databasenavn>
+1. Open Powershell or any terminal on your computer
+          
+2. Use `sqlcmd` and run this command `sqlcmd -S <servername> -U <username> -P <password> -d <database>`
 
-        • Fordi adgangskoden har specielle karakterer, skal adgangskoden indkapsles med ' '.
+3. If connection is successful, a sql session will be started. You can now use sql queries. Remember to run `go` after every query.
 
-3. Hvis forbindelsen succesfuld og der er oprettet forbindelse, vil der blive åbnet for en sql session (en form for shell). Denne kommando kan køres for at liste alle tilgængelige tabeller i databasen.
+Example: 
+`SELECT * FROM animal_information`
 
-        • SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE'
-
-        • Efter hvert sql statement skal man køre kommandoen ”go”.
-
-4. Herefter kan almindelige sql kommandoer blive udført. Prøv diverse SELECT, INSERT statements for de forskellige tabeller.
