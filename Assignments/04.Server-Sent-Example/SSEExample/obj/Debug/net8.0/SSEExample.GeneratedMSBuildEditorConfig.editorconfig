@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SSEExample
-build_property.ProjectDir = c:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\
+build_property.ProjectDir = C:\Users\yelon\OneDrive\Skrivebord\Systemintegration\systemintegration_KEA\Assignments\04.Server-Sent-Example\SSEExample\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
