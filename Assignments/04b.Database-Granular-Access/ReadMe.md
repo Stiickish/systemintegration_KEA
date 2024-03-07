@@ -37,9 +37,10 @@ This README file contains documentation for the database and it's structure, as 
 
 ## Table Permissions
 
-| Role          | animal_information | feeding_schedule | staff_details |
-|---------------|---------------------|------------------|---------------|
-| zoo_assistant | Read/Write          | Read             | No Access     |
+| Role          | animal_information | feeding_schedule                | staff_details                   |
+|---------------|---------------------|---------------------------------|---------------------------------|
+| zoo_assistant | Read/Write          | Read/Write (No Update on food_type, quantity) | Read/Write (No Read on salary, hire_date) |
+
 
 ## Database Connection
 Server: `systemintegration-kea.database.windows.net`
