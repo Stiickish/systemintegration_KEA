@@ -64,3 +64,9 @@ To access the database, follow these steps:
 Example: 
 `SELECT * FROM animal_information`
 
+## Exposee 
+
+GitHub: https://github.com/coerth/systemintegration_KEA/tree/main/00._Assignments/04_Assignments/04b._Database_granular_access
+
+For exposee documentation, see folder `images`
+
