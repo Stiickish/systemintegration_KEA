@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SSEExample")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ed9d5c205b18e738ce0096e47a550733aea558e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4be996d66a11e905ffe3996bde55b7f7bb8ccfa7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SSEExample")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SSEExample")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
