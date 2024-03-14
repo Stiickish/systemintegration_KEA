@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 mongoose.connect(
@@ -10,7 +10,6 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
-
 
 const webhookSchema = new mongoose.Schema(
   {
@@ -77,17 +76,16 @@ app.delete("/delete", async (req, res) => {
   }
 });
 
-
-// Endpoint to ping all webhooks
 const fetchTimeout = 10000; // 10 seconds
 
+// Endpoint to ping all webhooks
 app.get("/ping", async (req, res) => {
   console.log("Received ping request from:", req.ip);
   try {
     const registeredWebhooks = await Webhook.find();
-    const pingResponses = [];
 
-    for (const webhook of registeredWebhooks) {
+    // Map each registered webhook to an asynchronous function that sends a ping
+    const pingPromises = registeredWebhooks.map(async (webhook) => {
       try {
         const pingResponse = await fetch(webhook.webhook, {
           method: "POST",
@@ -95,17 +93,20 @@ app.get("/ping", async (req, res) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ ping: true }),
-          timeout: fetchTimeout, // Specify timeout
+          timeout: fetchTimeout,
         });
-
         const responseData = await pingResponse.json();
-        pingResponses.push(responseData);
+        return responseData;
       } catch (error) {
         console.error(`Error pinging webhook ${webhook.webhook}:`, error);
-        pingResponses.push({ error: `Failed to ping webhook ${webhook.webhook}` });
+        return { error: `Failed to ping webhook ${webhook.webhook}` };
       }
-    }
+    });
 
+    // Execute all ping promises concurrently and wait for all of them to complete
+    const pingResponses = await Promise.all(pingPromises);
+
+    // Send back the aggregated ping responses to the client
     res.json({
       message: "Ping sent to all webhooks",
       responses: pingResponses,
@@ -115,7 +116,6 @@ app.get("/ping", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
 
 // Endpoint to update the status of a webhook only for admin use
 app.post("/updateStatus", async (req, res) => {
@@ -134,11 +134,11 @@ app.post("/updateStatus", async (req, res) => {
     await webhook.save();
 
     // Send a notification to your partner's server
-    const notificationEndpoint = 'https://zack.serveo.net/webhook';
+    const notificationEndpoint = "https://zack.serveo.net/webhook";
     const notificationResponse = await fetch(notificationEndpoint, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         orderID: webhook.orderID,
@@ -147,9 +147,9 @@ app.post("/updateStatus", async (req, res) => {
     });
 
     if (notificationResponse.ok) {
-      console.log('Notification sent successfully');
+      console.log("Notification sent successfully");
     } else {
-      console.error('Failed to send notification');
+      console.error("Failed to send notification");
     }
 
     res.json({ message: "Webhook status updated successfully" });
@@ -158,8 +158,6 @@ app.post("/updateStatus", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-
 
 const PORT = 8080;
 app.listen(PORT, () => {
